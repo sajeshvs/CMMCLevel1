@@ -29,36 +29,115 @@
             table-layout: fixed;
             width: 100%;
         }
+
+        /* Custom active menu item style */
+        .nav-button.active {
+            background-color: #93C5FD; /* Light blue */
+            color: #1E40AF; /* Darker blue text for contrast */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* --- Custom CSS for the MVL HTML Logo (Adjusted for Header Integration) --- */
+        /* Apply logo styles specifically to the logo-container, without affecting other flex items */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 5px; /* Space between bars and text */
+            flex-shrink: 0; /* Prevent shrinking */
+            /* No padding, background, border-radius, or box-shadow here - handled by parent elements */
+        }
+        .color-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 1px; /* Reduced space between bars for a compact look */
+        }
+        .bar {
+            width: 25px; /* Adjusted width of each bar for header fit */
+            height: 5px; /* Adjusted height of each bar */
+            border-radius: 1px;
+        }
+        /* Define colors for each bar */
+        .bar-1 { background-color: #9b9b9b; } /* Grey */
+        .bar-2 { background-color: #ba2226; } /* Red */
+        .bar-3 { background-color: #8c2a8e; } /* Purple */
+        .bar-4 { background-color: #92b13f; } /* Olive Green */
+        .bar-5 { background-color: #e57e33; } /* Orange */
+
+        .logo-text {
+            font-size: 36px; /* Adjusted font size for header fit */
+            font-weight: 900;
+            background: linear-gradient(to right, #e0e0e0, #ffffff); /* Lighter gradient for white text on blue */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none; /* Remove shadow */
+            letter-spacing: -1px;
+            line-height: 1; /* Ensures text height is tight */
+        }
+
+        /* Responsive adjustments for the logo within the header */
+        @media (max-width: 640px) {
+            .logo-container {
+                flex-direction: row; /* Keep horizontal for small screens to save vertical space */
+                gap: 3px;
+                transform: scale(0.8); /* Slightly shrink the entire logo for mobile */
+                transform-origin: left center; /* Scale from left to keep alignment */
+            }
+            .logo-text {
+                font-size: 28px;
+                letter-spacing: -0.5px;
+            }
+            .bar {
+                width: 18px;
+                height: 3px;
+            }
+        }
+        /* --- End Custom CSS for the MVL HTML Logo --- */
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
 
     <!-- Header -->
-    <header class="bg-gradient-to-r from-sky-700 to-sky-900 text-white py-8 shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div>
-                    <h1 class="text-4xl font-bold tracking-tight">MVL Group</h1>
-                    <p class="text-xl text-sky-200">CMMC 2.0 Level 1: Plan of Action Dashboard</p>
+    <header class="bg-gradient-to-r from-sky-700 to-sky-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <!-- Top Row: Logo (new HTML version) and MVL Group Text -->
+            <div class="flex flex-col md:flex-row items-center justify-between w-full mb-4">
+                <div class="flex items-center mb-2 md:mb-0">
+                    <!-- NEW LOGO HTML HERE -->
+                    <div class="logo-container">
+                        <div class="color-bars">
+                            <!-- Five horizontal bars with specific colors as per provided code -->
+                            <div class="bar bar-1"></div>
+                            <div class="bar bar-2"></div>
+                            <div class="bar bar-3"></div>
+                            <div class="bar bar-4"></div>
+                            <div class="bar bar-5"></div>
+                        </div>
+                        <div class="logo-text">MVL</div>
+                    </div>
+                    <div class="text-left ml-4"> <!-- Added ml-4 for spacing -->
+                        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">MVL Group</h1>
+                        <p class="text-lg sm:text-xl text-sky-200">CMMC 2.0 Level 1: Plan of Action Dashboard</p>
+                    </div>
                 </div>
-                <img src="https://placehold.co/150x50/ffffff/sky700?text=MVL+Logo" alt="MVL Group Logo Placeholder" class="mt-4 md:mt-0 h-12" onerror="this.src='https://placehold.co/150x50/FFFFFF/000000?text=Logo+Error'; this.onerror=null;">
             </div>
+
+            <!-- Bottom Row: Navigation Buttons - Centered within the max-width container -->
+            <nav class="w-full">
+                <ul class="flex flex-wrap justify-center space-x-2 sm:space-x-4">
+                    <li><a href="#executive-summary" class="nav-button inline-block px-4 py-2 font-medium bg-sky-600 text-white rounded-lg shadow-md hover:bg-sky-500 transition-colors duration-200 text-sm md:text-base">Executive Summary</a></li>
+                    <li><a href="#cmmc-overview" class="nav-button inline-block px-4 py-2 font-medium bg-sky-600 text-white rounded-lg shadow-md hover:bg-sky-500 transition-colors duration-200 text-sm md:text-base">CMMC Overview</a></li>
+                    <li><a href="#detailed-status" class="nav-button inline-block px-4 py-2 font-medium bg-sky-600 text-white rounded-lg shadow-md hover:bg-sky-500 transition-colors duration-200 text-sm md:text-base">Detailed Status</a></li>
+                    <li><a href="#master-poam" class="nav-button inline-block px-4 py-2 font-medium bg-sky-600 text-white rounded-lg shadow-md hover:bg-sky-500 transition-colors duration-200 text-sm md:text-base">Master PoA&M</a></li>
+                    <li><a href="#timeline" class="nav-button inline-block px-4 py-2 font-medium bg-sky-600 text-white rounded-lg shadow-md hover:bg-sky-500 transition-colors duration-200 text-sm md:text-base">Timeline</a></li>
+                    <li><a href="#ready-to-file" class="nav-button inline-block px-4 py-2 font-medium bg-sky-600 text-white rounded-lg shadow-md hover:bg-sky-500 transition-colors duration-200 text-sm md:text-base">Checklist</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 space-y-16">
-
-        <!-- Navigation Tabs -->
-        <nav class="mb-12 sticky top-[100px] bg-slate-50 py-3 z-40 border-b border-slate-300">
-            <ul class="flex flex-wrap justify-center space-x-2 sm:space-x-4">
-                <li><a href="#executive-summary" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Executive Summary</a></li>
-                <li><a href="#cmmc-overview" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">CMMC Overview</a></li>
-                <li><a href="#detailed-status" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Detailed Status</a></li>
-                <li><a href="#master-poam" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Master PoA&M</a></li>
-                <li><a href="#timeline" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Timeline</a></li>
-                <li><a href="#ready-to-file" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Checklist</a></li>
-            </ul>
-        </nav>
 
         <!-- Executive Summary -->
         <section id="executive-summary" class="pt-16 -mt-16">
@@ -131,10 +210,10 @@
                         </div>
                         <!-- AC Control 2: 3.1.2 -->
                         <div class="p-4 hover:bg-slate-50 transition-colors">
-                            <h4 class="font-semibold text-md text-slate-800">Practice: Limit system access to the types of transactions and functions that authorized users are permitted to execute. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-not-implemented">Not Implemented</span></h4>
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Limit system access to the types of transactions and functions that authorized users are permitted to execute. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
                             <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.1.2</p>
                             <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Enforce the Principle of Least Privilege. Users should only have permissions necessary for their job functions, restricting what they can do after authentication.</p>
-                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Major gap. Access control lists defining user permissions within applications are not implemented. Excessive permissions and default admin rights are issues.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> MVL's IT Support team utilizes separate administrative accounts for privileged tasks and standard user accounts for daily work, effectively implementing the principle of least privilege for IT operations. Crucially, IT personnel do not have direct access to CUI data. However, broader access control lists defining user permissions within other applications are still under development, and removal of general default admin rights for non-IT users is ongoing.</p>
                             <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
                                 <ul class="list-disc list-inside pl-4 text-xs">
                                     <li>IT team to obtain RBAC matrices from Procore, Deltek, and Microtrack administrators.</li>
@@ -320,16 +399,13 @@
                     <div class="divide-y divide-slate-200 p-2">
                         <!-- SC Control 1: 3.13.1 -->
                         <div class="p-4 hover:bg-slate-50 transition-colors">
-                            <h4 class="font-semibold text-md text-slate-800">Practice: Monitor, control, and protect communications at the external boundaries and key internal boundaries of organizational systems. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Monitor, control, and protect communications at the external boundaries and key internal boundaries of organizational systems. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-implemented">Implemented</span></h4>
                             <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.13.1</p>
                             <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Manage information flow at the network perimeter using firewalls, routers, proxies to inspect/filter traffic, blocking malicious/unauthorized communications.</p>
-                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Security controls like firewalls and gateways are not properly in place to segregate networks. Cloud solution communications are not adequately monitored.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Zscaler's full capabilities (ZIA for secure internet access and ZPA for zero-trust network access) are fully implemented across all MVL boundaries, actively safeguarding inbound and outbound communications traffic by monitoring for attacks and indicators of potential threats. This significantly enhances network segregation and protection. Additionally, Sentinel is being configured to capture all logs, complemented by enabled firewall logs, to provide comprehensive monitoring.</p>
                             <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
                                 <ul class="list-disc list-inside pl-4 text-xs">
-                                    <li>Implement and configure a next-generation firewall at the network perimeter.</li>
-                                    <li>Define and enforce firewall rules (deny-all by default, permit by exception).</li>
-                                    <li>Actively monitor inbound/outbound traffic using firewall and Zscaler for threats/anomalies.</li>
-                                    <li>Establish and conduct the formal six-month Security Architecture Review.</li>
+                                    <li>Establish and conduct the formal six-month Security Architecture Review to ensure ongoing effectiveness of communication protections.</li>
                                 </ul>
                             </p>
                             <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO mandated a six-month Security Architecture Review. This recurring review is key.</p>
@@ -374,15 +450,13 @@
                         </div>
                         <!-- SI Control 2: 3.14.2 -->
                         <div class="p-4 hover:bg-slate-50 transition-colors">
-                            <h4 class="font-semibold text-md text-slate-800">Practice: Provide protection from malicious code at designated locations within organizational systems. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Provide protection from malicious code at designated locations within organizational systems. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-implemented">Implemented</span></h4>
                             <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.14.2</p>
                             <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Deploy antivirus/anti-malware on all workstations, servers, and potentially at network gateways (email/web filters).</p>
-                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Endpoint AV (ESET) is used. Protection at network entry/exit points (especially email) is not fully implemented.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> MVL utilizes Zscaler's full ZIA capabilities to detect and restrict malicious code at both entry and exit points, significantly enhancing protection beyond endpoint AV (ESET). Zscaler, in conjunction with existing SSL/TLS 1.2 and IPSec protocols, also protects the authenticity of communications sessions. All sessions are monitored in Microsoft Sentinel. This robust multi-layered approach complements existing AV and firewall capabilities.</p>
                             <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
                                 <ul class="list-disc list-inside pl-4 text-xs">
-                                    <li>Implement an advanced email security solution to scan/block malicious attachments/links.</li>
-                                    <li>Utilize firewall and Zscaler capabilities to block known malicious sites and scan web downloads.</li>
-                                    <li>Granularly retune Microsoft Defender email security settings.</li>
+                                    <li>Granularly retune Microsoft Defender email security settings to further enhance protection.</li>
                                 </ul>
                             </p>
                             <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> Ongoing task. COO highlighted need for better email filtering via Defender tuning and potentially a dedicated solution.</p>
@@ -576,7 +650,7 @@
                         </table>
                     </div>
                 </div>
-                
+
                 <!-- Workstream 4 -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-sky-700 mb-3">Workstream 4: Technical & Systems Hardening</h3>
@@ -712,18 +786,25 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links and active state highlighting
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
+
+                // Remove 'active' class from all buttons
+                document.querySelectorAll('.nav-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Add 'active' class to the clicked button
+                this.classList.add('active');
+
                 if (targetElement) {
-                    // Calculate offset for sticky header and nav
                     const headerOffset = document.querySelector('header').offsetHeight;
-                    const navOffset = document.querySelector('nav').offsetHeight;
                     const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset - navOffset - 20; // 20px extra padding
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; // 20px extra padding
 
                     window.scrollTo({
                         top: offsetPosition,
@@ -732,6 +813,29 @@
                 }
             });
         });
+
+        // Function to set active class on page load or refresh based on current hash
+        function setActiveNavButton() {
+            const currentHash = window.location.hash;
+            if (currentHash) {
+                const activeLink = document.querySelector(`nav a[href="${currentHash}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                } else {
+                    // Fallback to first link if hash doesn't match any nav item
+                    document.querySelector('nav a[href="#executive-summary"]').classList.add('active');
+                }
+            } else {
+                // Default to first link if no hash is present
+                document.querySelector('nav a[href="#executive-summary"]').classList.add('active');
+            }
+        }
+
+        // Call setActiveNavButton on page load
+        window.addEventListener('load', setActiveNavButton);
+
+        // Optional: Update active state on scroll (more advanced for real-time highlighting)
+        // This could be further enhanced to highlight based on scroll position in the future.
     </script>
 </body>
 </html>
