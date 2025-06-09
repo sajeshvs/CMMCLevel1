@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MVL Group – CMMC 2.0 Level 1: Plan of Action Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        .status-implemented { background-color: #D1FAE5; color: #065F46; } /* Green */
+        .status-in-progress { background-color: #FEF3C7; color: #92400E; } /* Yellow */
+        .status-not-implemented { background-color: #FEE2E2; color: #991B1B; } /* Red */
+
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        .table-fixed-layout {
+            table-layout: fixed;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-sky-700 to-sky-900 text-white py-8 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div>
+                    <h1 class="text-4xl font-bold tracking-tight">MVL Group</h1>
+                    <p class="text-xl text-sky-200">CMMC 2.0 Level 1: Plan of Action Dashboard</p>
+                </div>
+                <img src="https://placehold.co/150x50/ffffff/sky700?text=MVL+Logo" alt="MVL Group Logo Placeholder" class="mt-4 md:mt-0 h-12" onerror="this.src='https://placehold.co/150x50/FFFFFF/000000?text=Logo+Error'; this.onerror=null;">
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 space-y-16">
+
+        <!-- Navigation Tabs -->
+        <nav class="mb-12 sticky top-[100px] bg-slate-50 py-3 z-40 border-b border-slate-300">
+            <ul class="flex flex-wrap justify-center space-x-2 sm:space-x-4">
+                <li><a href="#executive-summary" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Executive Summary</a></li>
+                <li><a href="#cmmc-overview" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">CMMC Overview</a></li>
+                <li><a href="#detailed-status" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Detailed Status</a></li>
+                <li><a href="#master-poam" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Master PoA&M</a></li>
+                <li><a href="#timeline" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Timeline</a></li>
+                <li><a href="#ready-to-file" class="px-3 py-2 font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-100 rounded-md transition-colors">Checklist</a></li>
+            </ul>
+        </nav>
+
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-semibold text-sky-800 mb-6 pb-2 border-b-2 border-sky-300">1. Executive Summary</h2>
+            <div class="bg-white p-6 rounded-lg shadow-lg space-y-4">
+                <p class="text-lg text-slate-700">This document outlines the strategic Master Plan of Action & Milestones (PoA&M) for MVL Group to achieve compliance with the Cybersecurity Maturity Model Certification (CMMC) 2.0 at <strong>Level 1 (Basic)</strong>. Achieving CMMC Level 1 is crucial for maintaining eligibility for U.S. Department of Defense (DoD) contracts that involve handling Federal Contract Information (FCI).</p>
+                <p class="text-slate-600">Our current assessment indicates the following status for the 17 CMMC Level 1 controls:</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-green-100 p-4 rounded-lg shadow">
+                        <p class="text-3xl font-bold text-green-700">5</p>
+                        <p class="text-sm text-green-600">Controls Fully Implemented</p>
+                    </div>
+                    <div class="bg-yellow-100 p-4 rounded-lg shadow">
+                        <p class="text-3xl font-bold text-yellow-700">6</p>
+                        <p class="text-sm text-yellow-600">Controls In Progress / Partially Implemented</p>
+                    </div>
+                    <div class="bg-red-100 p-4 rounded-lg shadow">
+                        <p class="text-3xl font-bold text-red-700">6</p>
+                        <p class="text-sm text-red-600">Controls Not Implemented</p>
+                    </div>
+                </div>
+                <p class="text-slate-600">Significant gaps exist, particularly in Physical Security and formal policy documentation. This Master Plan provides a clear roadmap to address these deficiencies and achieve full compliance. The target for SPRS submission of the self-assessment is <strong>October 31, 2025</strong>.</p>
+            </div>
+        </section>
+
+        <!-- Understanding CMMC Level 1 -->
+        <section id="cmmc-overview" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-semibold text-sky-800 mb-6 pb-2 border-b-2 border-sky-300">2. Understanding CMMC 2.0 Level 1</h2>
+            <div class="bg-white p-6 rounded-lg shadow-lg space-y-4">
+                <p class="text-slate-700">CMMC 2.0 Level 1, also known as "Foundational," requires organizations to implement <strong>17 basic cybersecurity practices</strong>. These practices are designed to protect Federal Contract Information (FCI) – information not intended for public release that is provided by or generated for the Government under a contract. Level 1 focuses on establishing fundamental cyber hygiene and aligns with the safeguarding requirements specified in FAR 52.204-21.</p>
+                <p class="text-slate-600">The 17 practices are categorized into six domains:</p>
+                <ul class="list-disc list-inside text-slate-600 space-y-1 pl-4">
+                    <li><strong>Access Control (AC):</strong> 4 Practices</li>
+                    <li><strong>Identification & Authentication (IA):</strong> 2 Practices</li>
+                    <li><strong>Media Protection (MP):</strong> 1 Practice</li>
+                    <li><strong>Physical Protection (PE):</strong> 4 Practices</li>
+                    <li><strong>System and Communications Protection (SC):</strong> 2 Practices</li>
+                    <li><strong>System and Information Integrity (SI):</strong> 4 Practices</li>
+                </ul>
+                <p class="text-slate-700">Compliance with Level 1 is demonstrated through an annual self-assessment submitted to the Supplier Performance Risk System (SPRS).</p>
+            </div>
+        </section>
+
+        <!-- Detailed Control Status & Action Plan -->
+        <section id="detailed-status" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-semibold text-sky-800 mb-6 pb-2 border-b-2 border-sky-300">3. Detailed Control Status & Action Plan</h2>
+            <div class="space-y-6">
+                <!-- Domain: Access Control (AC) -->
+                <details class="group bg-white rounded-lg shadow-md overflow-hidden" open>
+                    <summary class="cursor-pointer select-none bg-sky-100 px-6 py-4 flex items-center justify-between text-sky-800 font-semibold text-lg hover:bg-sky-200 transition-colors">
+                        Access Control (AC) – 4 Practices
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </summary>
+                    <div class="divide-y divide-slate-200 p-2">
+                        <!-- AC Control 1: 3.1.1 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Limit information system access to authorized users. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.1.1</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Ensure that only identified and approved individuals (and processes or devices acting on their behalf) can log in and access company systems. This involves unique user accounts and formal authorization.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Basic password authentication is in place. However, a formal, centrally managed list of authorized users, their roles, and granted access levels is missing. Access is managed system-by-system.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Develop and approve a formal Access Control Policy and procedures for user authentication and authorization, especially before granting CUI access.</li>
+                                    <li>Create and maintain a master list of all authorized users, defining identity and role.</li>
+                                    <li>Synchronize this user list with all critical systems and applications (M365, Procore, Deltek, etc.).</li>
+                                    <li>Implement Privileged Identity Management (PIM) for IT users as directed by COO.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO directed PIM/PAM for IT. Project managers to approve folder access (tracked in Excel for now). Long-term: ITSM tool and central identity management (Entra ID).</p>
+                        </div>
+                        <!-- AC Control 2: 3.1.2 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Limit system access to the types of transactions and functions that authorized users are permitted to execute. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-not-implemented">Not Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.1.2</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Enforce the Principle of Least Privilege. Users should only have permissions necessary for their job functions, restricting what they can do after authentication.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Major gap. Access control lists defining user permissions within applications are not implemented. Excessive permissions and default admin rights are issues.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>IT team to obtain RBAC matrices from Procore, Deltek, and Microtrack administrators.</li>
+                                    <li>Develop a comprehensive Role-Based Access Control (RBAC) matrix defining permissions for each job role across all applications.</li>
+                                    <li>Configure all applications to enforce the RBAC matrix.</li>
+                                    <li>Audit all user accounts and remove local administrator privileges from standard user workstations.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO tasked IT with obtaining RBAC matrices. Leverage Zero Trust features in M365 GCC G5 once the matrix is defined.</p>
+                        </div>
+                        <!-- AC Control 3: 3.1.20 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Verify and control/limit connections to and use of external information systems. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-implemented">Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.1.20</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Control how internal systems connect to external networks/systems (e.g., third-party cloud services, vendor portals) and manage personally owned devices used for work. Prevent data exfiltration and ingress of threats.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Marked as completed by COO. Controls via Microsoft Intune MDM/MAM are implemented to enforce security policies on company-owned and personal devices, including data wipe capabilities.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Ensure Intune policies are fully configured, deployed to all in-scope devices, and actively monitored.</li>
+                                    <li>Periodically review and update MDM/MAM policies.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO marked as complete based on Intune MDM implementation plan.</p>
+                        </div>
+                        <!-- AC Control 4: 3.1.22 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Control information posted or processed on publicly accessible systems. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.1.22</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Implement policies and procedures to prevent sensitive information (CUI) from being posted on publicly accessible systems like websites, social media, or public forums.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Public systems are managed by specific departments, but no formal list of authorized posters exists. Procedures to review content for CUI before posting are not established.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Formalize and document the authorized list of individuals (Abie Musa, Marketing Manager) approved to post information publicly.</li>
+                                    <li>Create and implement a mandatory "Preparation / Review / Approval" policy and procedure for all public-facing content.</li>
+                                    <li>Update employee handbook and security awareness training to forbid unauthorized public posting of company information.</li>
+                                    <li>Communicate the new policy to relevant department heads (Rana & Joshna as per COO directive).</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO clearly defined authorized posters. Formal policy creation is the key remaining step.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Domain: Identification & Authentication (IA) -->
+                <details class="group bg-white rounded-lg shadow-md overflow-hidden">
+                    <summary class="cursor-pointer select-none bg-sky-100 px-6 py-4 flex items-center justify-between text-sky-800 font-semibold text-lg hover:bg-sky-200 transition-colors">
+                        Identification & Authentication (IA) – 2 Practices
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </summary>
+                    <div class="divide-y divide-slate-200 p-2">
+                        <!-- IA Control 1: 3.5.1 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Identify information system users, processes, or devices. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.5.1</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Assign a unique identifier to every user, device, or automated process accessing systems, forming the basis for accountability.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> All employees have unique user IDs via HR onboarding. However, comprehensive documentation of all identities (including service accounts) is incomplete.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Engage external freelancer to identify and document all system users, service accounts (with owners), and process authentication mechanisms across Microsoft, Zscaler, and Acronis.</li>
+                                    <li>Ensure all identities are managed through a central system like Microsoft Entra ID.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO approved hiring an external freelancer for documentation, highlighting the need for formal records.</p>
+                        </div>
+                        <!-- IA Control 2: 3.5.2 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Authenticate (or verify) the identities of those users, processes, or devices. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.5.2</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Verify the identity presented (e.g., username) typically through passwords, tokens, or biometrics before granting access.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Basic authentication with unique user IDs and passwords is in place. MFA is implemented for email and Teams. However, formal, documented processes for the entire identity lifecycle (creation, password resets, disabling accounts) are missing.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Formally document procedures for account creation, provisioning, password management (complexity, history, temporary passwords), and disabling accounts upon termination or inactivity.</li>
+                                    <li>Integrate these processes with the future ITSM tool and HR workflows.</li>
+                                    <li>Expand MFA to all network access to non-privileged accounts and local/network access to privileged accounts (as per NIST 800-171 full scope).</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> Ongoing task linked to ITSM tool implementation and HR process integration. Focus on formalizing the identity lifecycle.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Domain: Media Protection (MP) -->
+                <details class="group bg-white rounded-lg shadow-md overflow-hidden">
+                    <summary class="cursor-pointer select-none bg-sky-100 px-6 py-4 flex items-center justify-between text-sky-800 font-semibold text-lg hover:bg-sky-200 transition-colors">
+                        Media Protection (MP) – 1 Practice
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </summary>
+                    <div class="divide-y divide-slate-200 p-2">
+                        <!-- MP Control 1: 3.8.3 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Sanitize or destroy system media containing CUI before disposal or release for reuse. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.8.3</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Ensure CUI on physical or digital media (hard drives, USBs, tapes, paper) is unrecoverable before disposal or reuse, using methods like shredding, degaussing, or cryptographic erasure.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> A paper shredder is available. However, formal, established procedures for sanitizing digital media are not consistently applied or documented.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Develop and approve a formal Media Protection & Disposal Policy defining approved sanitization/destruction methods (e.g., NIST SP 800-88 guidelines).</li>
+                                    <li>Implement and document procedures for using Intune's "Data Wipe" for mobile devices/laptops and disk wiping software for loose hard drives.</li>
+                                    <li>Create and maintain a media disposal log detailing date, method, and personnel for all disposed media.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO directed creation of a media disposal log. Technical solution to rely on Intune/Defender for digital media, but formal policy and log are key.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Domain: Physical Protection (PE) -->
+                <details class="group bg-white rounded-lg shadow-md overflow-hidden">
+                    <summary class="cursor-pointer select-none bg-sky-100 px-6 py-4 flex items-center justify-between text-sky-800 font-semibold text-lg hover:bg-sky-200 transition-colors">
+                        Physical Protection (PE) – 4 Practices
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </summary>
+                    <div class="divide-y divide-slate-200 p-2">
+                        <!-- PE Control 1: 3.10.1 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Limit physical access to systems, equipment, and the respective operating environments to authorized individuals. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-not-implemented">Not Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.10.1</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Secure physical locations to prevent unauthorized physical access to servers, networking equipment, and workstations, typically via locked doors and access control systems.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Critical deficiency. Assessment could not demonstrate physical access controls. LSA site construction is underway. Biometric access in Dubai office is installed but not used.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Procure a compliant (non-Chinese, UNIFI-compatible) biometric access control system.</li>
+                                    <li>Install and activate the new system for all sensitive areas (server rooms, office entrances).</li>
+                                    <li>Develop and approve a Physical Access Policy defining authorized access to specific areas.</li>
+                                    <li>Formally designate and document "secure areas" containing CUI systems.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO directed purchase of new compliant biometric device. This is a blocking item for several PE controls.</p>
+                        </div>
+                        <!-- PE Control 2: 3.10.3 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Escort visitors and monitor visitor activity. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-not-implemented">Not Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.10.3</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> All visitors in facilities must be escorted by an authorized employee, especially near CUI areas, and their activity monitored.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Visitors reportedly escorted, but no robust, formal procedure exists. Practice is informal and not policy-enforced.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Develop and approve a formal Visitor Management Policy including sign-in/out, badges, and mandatory escorting.</li>
+                                    <li>Train all employees on the visitor policy and their escorting responsibilities.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO directed creation of a formal Visitor Management policy.</p>
+                        </div>
+                        <!-- PE Control 3: 3.10.4 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Maintain audit logs of physical access. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-not-implemented">Not Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.10.4</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Keep records of who enters/leaves secure facilities, via visitor logs and electronic logs from access control systems.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> No formal audit logs of physical access. Front desk may manage guests, but no system logs employee access to sensitive areas.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Implement and configure the new biometric/access control system to log all access events.</li>
+                                    <li>Ensure logs are retained for a defined period (e.g., 90+ days).</li>
+                                    <li>Implement a formal visitor sign-in sheet (physical or digital).</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> Dependent on new biometric system (3.10.1) implementation for employee logs.</p>
+                        </div>
+                        <!-- PE Control 4: 3.10.5 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Control and manage physical access devices. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-not-implemented">Not Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.10.5</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Properly manage devices controlling physical access (keys, locks, key cards), including issuance, revocation, and preventing compromise.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Physical access controls are yet to be established, so devices are not properly managed.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Once new biometric system is installed, create an inventory of all physical access credentials.</li>
+                                    <li>Develop formal procedures for issuing new access credentials and immediately revoking access upon termination or loss.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> Dependent on new biometric system (3.10.1). Procedures for user enrollment/removal in the new system are needed.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Domain: System and Communications Protection (SC) -->
+                <details class="group bg-white rounded-lg shadow-md overflow-hidden">
+                    <summary class="cursor-pointer select-none bg-sky-100 px-6 py-4 flex items-center justify-between text-sky-800 font-semibold text-lg hover:bg-sky-200 transition-colors">
+                        System and Communications Protection (SC) – 2 Practices
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </summary>
+                    <div class="divide-y divide-slate-200 p-2">
+                        <!-- SC Control 1: 3.13.1 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Monitor, control, and protect communications at the external boundaries and key internal boundaries of organizational systems. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.13.1</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Manage information flow at the network perimeter using firewalls, routers, proxies to inspect/filter traffic, blocking malicious/unauthorized communications.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Security controls like firewalls and gateways are not properly in place to segregate networks. Cloud solution communications are not adequately monitored.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Implement and configure a next-generation firewall at the network perimeter.</li>
+                                    <li>Define and enforce firewall rules (deny-all by default, permit by exception).</li>
+                                    <li>Actively monitor inbound/outbound traffic using firewall and Zscaler for threats/anomalies.</li>
+                                    <li>Establish and conduct the formal six-month Security Architecture Review.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO mandated a six-month Security Architecture Review. This recurring review is key.</p>
+                        </div>
+                        <!-- SC Control 2: 3.13.5 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Implement subnetworks for publicly accessible system components that are physically or logically separated from internal networks. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-implemented">Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.13.5</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Isolate internet-accessible systems (e.g., public web server) from the internal corporate network, typically in a DMZ protected by firewalls.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Completed. VLANs have been implemented for logical network segmentation.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Periodically review VLAN configuration to ensure continued security and proper isolation.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> N/A. Control is met.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Domain: System and Information Integrity (SI) -->
+                <details class="group bg-white rounded-lg shadow-md overflow-hidden">
+                    <summary class="cursor-pointer select-none bg-sky-100 px-6 py-4 flex items-center justify-between text-sky-800 font-semibold text-lg hover:bg-sky-200 transition-colors">
+                        System and Information Integrity (SI) – 4 Practices
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </summary>
+                    <div class="divide-y divide-slate-200 p-2">
+                        <!-- SI Control 1: 3.14.1 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Identify, report, and correct information and information system flaws in a timely manner. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-not-implemented">Not Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.14.1</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Implement a vulnerability management process: regularly scan for flaws, have a system for reporting, and a process to fix identified flaws based on severity.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Limited manual analysis for flaws. No formal process for reporting or correcting vulnerabilities.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Implement automated vulnerability scanning tools.</li>
+                                    <li>Develop and approve a Patch Management Policy defining remediation timelines based on risk.</li>
+                                    <li>Utilize the future ITSM tool to track flaws from discovery to remediation.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> COO acknowledged ITSM tool is required for this. This is a significant gap.</p>
+                        </div>
+                        <!-- SI Control 2: 3.14.2 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Provide protection from malicious code at designated locations within organizational systems. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-in-progress">In Progress</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.14.2</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Deploy antivirus/anti-malware on all workstations, servers, and potentially at network gateways (email/web filters).</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Endpoint AV (ESET) is used. Protection at network entry/exit points (especially email) is not fully implemented.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Implement an advanced email security solution to scan/block malicious attachments/links.</li>
+                                    <li>Utilize firewall and Zscaler capabilities to block known malicious sites and scan web downloads.</li>
+                                    <li>Granularly retune Microsoft Defender email security settings.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> Ongoing task. COO highlighted need for better email filtering via Defender tuning and potentially a dedicated solution.</p>
+                        </div>
+                        <!-- SI Control 3: 3.14.4 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Update malicious code protection mechanisms when new releases are available. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-implemented">Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.14.4</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Ensure anti-malware software is constantly updated with the latest virus signatures and engine updates.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> AV signatures are updated daily per pre-defined settings.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Use the central AV console (Defender) to monitor and verify update success on all endpoints.</li>
+                                    <li>Conduct periodic manual audits of definition dates on a sample of machines.</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> Control is met. Requesting vendor pen-test results is part of broader vulnerability management.</p>
+                        </div>
+                        <!-- SI Control 4: 3.14.5 -->
+                        <div class="p-4 hover:bg-slate-50 transition-colors">
+                            <h4 class="font-semibold text-md text-slate-800">Practice: Perform periodic scans of organizational systems and real-time scans of files from external sources as files are downloaded, opened, or executed. <span class="ml-2 px-2 py-0.5 text-xs font-medium rounded-full status-implemented">Implemented</span></h4>
+                            <p class="text-sm text-slate-500 mb-1">NIST 800-171 Control: 3.14.5</p>
+                            <p class="text-sm text-slate-700 mt-2"><strong>Requirement Explanation:</strong> Configure anti-malware for regular full-system scans and real-time scanning of new files as they are accessed.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>MVL's Current Status:</strong> Existing endpoint protection (ESET) performs periodic, real-time, and on-demand scans.</p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Detailed Remaining Tasks / Action Plan:</strong>
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Transition to and fully utilize Microsoft Defender for Endpoint for enhanced capabilities (behavioral detection, EDR).</li>
+                                </ul>
+                            </p>
+                            <p class="text-sm text-slate-700 mt-1"><strong>Suggestions/Comments/COO Directives:</strong> Basic requirement met. Management expects continuous improvement via advanced tools like Defender.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Master Plan of Action Summary (Workstreams) -->
+        <section id="master-poam" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-semibold text-sky-800 mb-6 pb-2 border-b-2 border-sky-300">4. Master Plan of Action & Milestones (PoA&M)</h2>
+            <div class="space-y-8">
+                <!-- Workstream 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-3">Workstream 1: Foundational Governance & Documentation</h3>
+                    <p class="text-sm text-slate-600 mb-4">This workstream addresses the critical gap in formal, written policies and procedures, which underpin all other security activities.</p>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-200 text-sm table-fixed-layout">
+                            <thead class="bg-slate-100">
+                                <tr>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-1/12">ID</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-4/12">Action Item</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-2/12">Lead/Owner</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-3/12">Resources</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-2/12">Target Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">G&D-01</td>
+                                    <td class="px-4 py-2">Develop and approve formal Access Control Policy.</td>
+                                    <td class="px-4 py-2">IT Team (Rusevalt)</td>
+                                    <td class="px-4 py-2">Time (IT & Mgmt)</td>
+                                    <td class="px-4 py-2">Aug 30, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">G&D-02</td>
+                                    <td class="px-4 py-2">Develop and approve formal Visitor Management Policy.</td>
+                                    <td class="px-4 py-2">Office Admin / HR</td>
+                                    <td class="px-4 py-2">Time (HR & Mgmt)</td>
+                                    <td class="px-4 py-2">Aug 30, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">G&D-03</td>
+                                    <td class="px-4 py-2">Develop and approve formal Media Protection & Disposal Policy (incl. log template).</td>
+                                    <td class="px-4 py-2">IT Team (Sajesh)</td>
+                                    <td class="px-4 py-2">Time (IT)</td>
+                                    <td class="px-4 py-2">Sep 15, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">G&D-04</td>
+                                    <td class="px-4 py-2">Develop and approve "Public Posting" (Prep/Review/Approval) Policy.</td>
+                                    <td class="px-4 py-2">Marketing / HR</td>
+                                    <td class="px-4 py-2">Time (Marketing & HR)</td>
+                                    <td class="px-4 py-2">Jul 31, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">G&D-05</td>
+                                    <td class="px-4 py-2">Onboard external freelancer for identity documentation.</td>
+                                    <td class="px-4 py-2">IT Team (Rusevalt)</td>
+                                    <td class="px-4 py-2">Approved Funding</td>
+                                    <td class="px-4 py-2">Oct 31, 2025</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Workstream 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-3">Workstream 2: Physical Security Remediation</h3>
+                    <p class="text-sm text-slate-600 mb-4">This workstream addresses the most urgent compliance gaps for the physical facilities, which are currently a major vulnerability.</p>
+                     <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-200 text-sm table-fixed-layout">
+                            <thead class="bg-slate-100">
+                                <tr>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-1/12">ID</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-4/12">Action Item</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-2/12">Lead/Owner</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-3/12">Resources</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-2/12">Target Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">PS-01</td>
+                                    <td class="px-4 py-2">Procure compliant biometric access control system.</td>
+                                    <td class="px-4 py-2">IT Team (Sajesh)</td>
+                                    <td class="px-4 py-2">Approved Funding</td>
+                                    <td class="px-4 py-2">Jul 31, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">PS-02</td>
+                                    <td class="px-4 py-2">Install and configure new biometric system.</td>
+                                    <td class="px-4 py-2">IT Team (Sajesh)</td>
+                                    <td class="px-4 py-2">Procured Hardware</td>
+                                    <td class="px-4 py-2">Sep 30, 2025</td>
+                                </tr>
+                                 <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">PS-03</td>
+                                    <td class="px-4 py-2">Enroll employees & establish access device management process.</td>
+                                    <td class="px-4 py-2">IT Team (Sajesh)</td>
+                                    <td class="px-4 py-2">Completed PS-02</td>
+                                    <td class="px-4 py-2">Oct 15, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">PS-04</td>
+                                    <td class="px-4 py-2">Configure audit logging for physical access & establish review procedure.</td>
+                                    <td class="px-4 py-2">IT Team (Rusevalt)</td>
+                                    <td class="px-4 py-2">Completed PS-02</td>
+                                    <td class="px-4 py-2">Oct 15, 2025</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Workstream 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-3">Workstream 3: Access Control Implementation</h3>
+                    <p class="text-sm text-slate-600 mb-4">This workstream focuses on enforcing the principle of least privilege across all digital systems and applications.</p>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-200 text-sm table-fixed-layout">
+                            <thead class="bg-slate-100">
+                                <tr>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-1/12">ID</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-4/12">Action Item</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-2/12">Lead/Owner</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-3/12">Resources</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-2/12">Target Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">AC-01</td>
+                                    <td class="px-4 py-2">Obtain RBAC matrices from Procore, Deltek, Microtrack.</td>
+                                    <td class="px-4 py-2">IT Team</td>
+                                    <td class="px-4 py-2">Time (Coordination)</td>
+                                    <td class="px-4 py-2">Jul 15, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">AC-02</td>
+                                    <td class="px-4 py-2">Create master RBAC matrix for all MVL users/systems.</td>
+                                    <td class="px-4 py-2">IT Team (Rusevalt)</td>
+                                    <td class="px-4 py-2">Completed AC-01</td>
+                                    <td class="px-4 py-2">Aug 30, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">AC-03</td>
+                                    <td class="px-4 py-2">Implement PIM for all M365 administrative roles.</td>
+                                    <td class="px-4 py-2">IT Team (Rusevalt)</td>
+                                    <td class="px-4 py-2">M365 G5 License</td>
+                                    <td class="px-4 py-2">Sep 15, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">AC-04</td>
+                                    <td class="px-4 py-2">Remediate user permissions in all apps per RBAC matrix.</td>
+                                    <td class="px-4 py-2">IT Team (Sajesh)</td>
+                                    <td class="px-4 py-2">Completed AC-02</td>
+                                    <td class="px-4 py-2">Nov 30, 2025</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Workstream 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-3">Workstream 4: Technical & Systems Hardening</h3>
+                    <p class="text-sm text-slate-600 mb-4">This workstream covers the remaining technical implementations, tool configurations, and process formalization required for compliance.</p>
+                     <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-200 text-sm table-fixed-layout">
+                            <thead class="bg-slate-100">
+                                <tr>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-1/12">ID</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-4/12">Action Item</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-2/12">Lead/Owner</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-3/12">Resources</th>
+                                    <th class="px-4 py-2 text-left font-medium text-slate-600 w-2/12">Target Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                               <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">TS-01</td>
+                                    <td class="px-4 py-2">Procure and implement ITSM tool.</td>
+                                    <td class="px-4 py-2">IT Team</td>
+                                    <td class="px-4 py-2">Approved Funding</td>
+                                    <td class="px-4 py-2">Oct 31, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">TS-02</td>
+                                    <td class="px-4 py-2">Establish and conduct first formal 6-month Security Architecture Review.</td>
+                                    <td class="px-4 py-2">IT Team (Rusevalt)</td>
+                                    <td class="px-4 py-2">Time (IT Team)</td>
+                                    <td class="px-4 py-2">Dec 15, 2025</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-4 py-2">TS-03</td>
+                                    <td class="px-4 py-2">Enhance/tune Defender email security settings.</td>
+                                    <td class="px-4 py-2">IT Team (Sajesh)</td>
+                                    <td class="px-4 py-2">M365 G5 License</td>
+                                    <td class="px-4 py-2">Ongoing</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overall Timeline & Milestones -->
+        <section id="timeline" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-semibold text-sky-800 mb-6 pb-2 border-b-2 border-sky-300">5. Overall Timeline & Key Milestones</h2>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <ol class="relative border-l border-slate-300 space-y-10 ml-4">
+                    <li class="mb-10 ml-6">
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-sky-200 rounded-full -left-4 ring-4 ring-white">
+                            <i class="fas fa-flag-checkered text-sky-700"></i>
+                        </span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-slate-900">Phase 1: Foundational Setup <span class="bg-sky-100 text-sky-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Target: July 31, 2025</span></h3>
+                        <p class="text-sm text-slate-600">Procure biometric system (PS-01). Obtain RBAC matrices (AC-01). Approve "Public Posting" Policy (G&D-04).</p>
+                    </li>
+                    <li class="mb-10 ml-6">
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-sky-200 rounded-full -left-4 ring-4 ring-white">
+                             <i class="fas fa-pencil-alt text-sky-700"></i>
+                        </span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-slate-900">Phase 2: Policy Development & Core Implementations <span class="bg-sky-100 text-sky-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Target: Sep 30, 2025</span></h3>
+                        <p class="text-sm text-slate-600">Approve Access Control, Visitor, and Media Disposal Policies (G&D-01, G&D-02, G&D-03). Install biometric system (PS-02). Create master RBAC matrix (AC-02). Implement M365 PIM (AC-03).</p>
+                    </li>
+                     <li class="mb-10 ml-6">
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-sky-200 rounded-full -left-4 ring-4 ring-white">
+                            <i class="fas fa-cogs text-sky-700"></i>
+                        </span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-slate-900">Phase 3: System Configuration & Process Rollout <span class="bg-sky-100 text-sky-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Target: Oct 31, 2025</span></h3>
+                        <p class="text-sm text-slate-600">Complete biometric system rollout (PS-03, PS-04). Onboard identity documentation freelancer (G&D-05). Procure/Implement ITSM tool (TS-01).</p>
+                    </li>
+                    <li class="mb-10 ml-6">
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-sky-200 rounded-full -left-4 ring-4 ring-white">
+                            <i class="fas fa-user-shield text-sky-700"></i>
+                        </span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-slate-900">Phase 4: Final Remediation & Review <span class="bg-sky-100 text-sky-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Target: Dec 15, 2025</span></h3>
+                        <p class="text-sm text-slate-600">Remediate application permissions per RBAC (AC-04). Conduct first Security Architecture Review (TS-02). Finalize email security tuning (TS-03).</p>
+                    </li>
+                    <li class="ml-6">
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -left-4 ring-4 ring-white">
+                            <i class="fas fa-check-double text-green-700"></i>
+                        </span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-slate-900">Compliance Goal: CMMC Level 1 Self-Assessment Submission to SPRS <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Target: By Oct 31, 2025</span></h3>
+                        <p class="text-sm text-slate-600">Complete all actions, gather evidence, and submit the self-assessment.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Ready-to-File Checklist for SPRS -->
+        <section id="ready-to-file" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-semibold text-sky-800 mb-6 pb-2 border-b-2 border-sky-300">6. Ready-to-File Checklist for SPRS Submission</h2>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <ul class="list-none space-y-3">
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i>
+                        <span class="text-slate-700">All 17 CMMC Level 1 practices implemented and documented.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-file-alt text-sky-600 mr-3 text-xl"></i>
+                        <span class="text-slate-700">All required policies (Access Control, Visitor, Media Disposal, Public Posting) approved and disseminated.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-folder-open text-sky-600 mr-3 text-xl"></i>
+                        <span class="text-slate-700">Evidence collected for each control (e.g., screenshots, log excerpts, policy documents, training records).</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-user-tie text-sky-600 mr-3 text-xl"></i>
+                        <span class="text-slate-700">System Security Plan (SSP) for Level 1 practices drafted (even if basic).</span>
+                    </li>
+                     <li class="flex items-center">
+                        <i class="fas fa-signature text-sky-600 mr-3 text-xl"></i>
+                        <span class="text-slate-700">Executive affirmation letter signed by CEO/COO, attesting to the accuracy of the self-assessment.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-id-card text-sky-600 mr-3 text-xl"></i>
+                        <span class="text-slate-700">PIEE account active and "SPRS Cyber Vendor" role assigned to the designated individual.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-upload text-sky-600 mr-3 text-xl"></i>
+                        <span class="text-slate-700">NIST SP 800-171 self-assessment score calculated and ready for SPRS entry (alongside CMMC Level 1 attestation).</span>
+                    </li>
+                </ul>
+                <p class="mt-6 text-sm text-slate-600">Once all items are checked, MVL Group can confidently submit its CMMC Level 1 self-assessment to SPRS, meeting its contractual obligations and demonstrating a commitment to basic cyber hygiene.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 py-8 text-center mt-16">
+        <p>&copy; <span id="currentYear"></span> MVL Group – IT Security & Compliance. All Rights Reserved.</p>
+        <p class="text-xs mt-1">Document Version: 1.0 | Last Updated: June 4, 2025</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calculate offset for sticky header and nav
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const navOffset = document.querySelector('nav').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset - navOffset - 20; // 20px extra padding
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
